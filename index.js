@@ -21,6 +21,35 @@ connection.connect((err) => {
   console.log('Connected to the database as id ' + connection.threadId);
 });
 
+connection.connect(function (err) {
+  if (err) throw err;
+  console.log('Connected')
+  let sql = "INSERT INTO User(username, email, phone) VALUES ('Maria','maria@eon.ro','0751864287')"
+  connection.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log(result);
+  })
+})
+
+connection.connect(function (err) {
+  if (err) throw err;
+  console.log('Connected')
+  const sql = `CREATE TABLE Recipe (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(200),
+      descrption VARCHAR(500),
+      cuisine VARCHAR(100),
+      rating INT,
+      user_id INT,
+      FOREIGN KEY (user_id) REFERENCES User(id)
+    ) `;
+  connection.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log(result);
+  })
+})
+
+
 app.get('/test-sqs', (req, res) => {
   connection.query('SELECT 1 + 1 AS solution', (err, results) => {
     if (err) {

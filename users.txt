@@ -1,0 +1,20 @@
+{
+          "id": 1,
+          "username": "Maria",
+          "email": "maria@eon.ro",
+          "phone": "0751864287"
+}
+
+{
+          "id": 2,
+          "username": "Andrei",
+          "email": "Andrei@ubb.com",
+          "phone": "0752484529"
+}
+
+{
+          "id": 3,
+          "username": "Andrei",
+          "email": "Andrei@ubb.com",
+          "phone": "0752484"
+}
