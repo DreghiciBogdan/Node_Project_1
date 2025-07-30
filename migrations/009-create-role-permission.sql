@@ -1,0 +1,7 @@
+Create TABLE Role_Permission(
+    PID INT,
+    RID INT,
+    PRIMARY KEY (PID, RID),
+    FOREIGN KEY (PID) REFERENCES Permission(id) ON DELETE CASCADE,
+    FOREIGN KEY (RID) REFERENCES Role(id) ON DELETE CASCADE
+)

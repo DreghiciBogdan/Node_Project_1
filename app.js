@@ -1,14 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const path = require('path');
 const port = 3000;
 const cookieParser = require('cookie-parser');
-const {writeUsers } = require('./services/userService');
+const {runRemainingMigration } = require('./migrations/migrationScripts');
 
 
 app.use(express.json());
 app.use(cookieParser());
-
 
 const recipeRoutes = require('./routes/recipeRoutes');
 app.use('/api/recipes', recipeRoutes);
@@ -22,7 +22,10 @@ const cookBook_RecipeRoutes = require('./routes/cookBook_RecipeRoutes');
 app.use('/api/cookBook_Recipes', cookBook_RecipeRoutes)
 const autentificationRoute = require('./routes/autentificationRoute');
 app.use('/api/autentification', autentificationRoute)
+const uploadRoutes = require('./routes/uploadRoutes');
+app.use('/api/upload', uploadRoutes)
 
+//runRemainingMigration();
 
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);

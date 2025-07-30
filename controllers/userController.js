@@ -1,6 +1,5 @@
 const userService = require('../services/userService');
 
-
 exports.createUser = async (req, res) => {
     try {
         const result = await userService.createUser(req.body);
