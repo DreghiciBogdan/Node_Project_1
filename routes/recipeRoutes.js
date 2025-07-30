@@ -4,7 +4,6 @@ const recipeController = require('../controllers/recipeController');
 const {recipeSchema} = require("../validators/schemas");
 const{ validateRecipe } = require ('../middleware/validateMiddleware.js');
 
-
 router.get('/', recipeController.getRecipes);
 router.post('/',validateRecipe(recipeSchema), recipeController.createRecipe)
 router.put('/:id', recipeController.updateRecipe);
